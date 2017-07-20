@@ -1,0 +1,20 @@
+<article class="card">
+  <header {{#if image}}class="card-image"{{/if}}>
+    <img src="{{image}}">
+    <a href="{{url}}"><h1>{{title}}</h1></a>
+  </header>
+  <div class="card-content">
+    {{content}}
+  </div>
+  <div class="card-info">
+    <span>Posted by {{author}} on <time>{{date format='MMMM Do YYYY'}}</time></span>
+    {{#if tags}}
+      <div>
+        <span>TAGS:</span>
+        {{tags separator=""}}
+      </div>
+    {{else}}
+      NO TAGS
+    {{/if}}
+  </div>
+</article>

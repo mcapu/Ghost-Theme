@@ -1,0 +1,96 @@
+/*======================================
+              SETTINGS
+ ======================================= */
+
+$primary-color:     #9cf;
+$secondary-color:   #cceeff;
+$font-color:        #555;
+$background-color:  #eee;
+
+$font-size-h1:      3;
+
+//Used for making many paddings/margins, not only the card's
+$big-padding:       5rem;
+$small-padding:     2rem;
+
+
+/*======================================
+                 MIXINS
+ ======================================= */
+@mixin flex-box ($flex-direction, $justify-content, $align-items) {
+  display:          flex;
+  flex-direction:   $flex-direction;
+  justify-content:  $justify-content;
+  align-items:      $align-items;
+}
+
+
+/*======================================
+          MATERIALIZE VARIABLES
+ ======================================= */
+$button-color:      $primary-color;
+
+//Takes the h1 size and scales the rest accordingly
+$h1-fontsize: #{$font-size-h1}rem;
+$h2-fontsize: #{($font-size-h1 - 1)*.8 + 1}rem;
+$h3-fontsize: #{($font-size-h1 - 1)*.6 + 1}rem;
+$h4-fontsize: #{($font-size-h1 - 1)*.4 + 1}rem;
+$h5-fontsize: #{($font-size-h1 - 1)*.2 + 1}rem;
+$h6-fontsize: 1rem !default;
+
+//Import this after we set the materialize variables
+@import "../../bower_components/materialize/sass/materialize.scss";
+
+//And import the other files in the folder
+@import "nav.scss";
+@import "card.scss";
+@import "text.scss";
+@import "error.scss";
+
+/*======================================
+                 LAYOUT
+ ======================================= */
+html {
+  height: 100%;
+  @media only screen and (min-width: 0) {
+    font-size: 12px;
+  }
+
+  @media only screen and (min-width: $medium-screen) {
+    font-size: 14px;
+  }
+
+  @media only screen and (min-width: $large-screen) {
+    font-size: 14px;
+  }
+}
+
+body {
+  background: $background-color;
+  color: $font-color;
+  min-height: 100%;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 70rem;
+  width: 100%;
+  
+  @media #{$medium-and-up} {
+    width: 85%;
+  }
+
+  @media #{$large-and-up} {
+    width: 70%;
+  }
+}
+
+@media only screen and (min-width: 50rem) {
+  .card-info {
+    flex-direction: row;
+    
+    span {
+      margin-bottom: 0;
+    }
+  }
+}
